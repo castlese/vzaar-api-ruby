@@ -5,7 +5,10 @@ module Vzaar
       resource "VideoCollection"
 
       def url_params
-        super.merge({ page: options[:page] || 1 })
+        params = super.merge({ page: options[:page] || 1 })
+        if options[:title]
+          params.merge({title: options[:page]})
+        end
       end
 
       def login
