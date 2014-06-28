@@ -5,7 +5,6 @@ module Vzaar
       resource "VideoCollection"
 
       def url_params
-        Rails.logger.info options[:title]
         super.merge({ page: options[:page] || 1, title: options[:title] })
       end
 
