@@ -33,6 +33,7 @@ module Vzaar
       format :xml
 
       def execute
+        Rails.logger.info url
         conn.using_connection(url, user_options) do |res|
           _res = Response::Base.new(res)
           if _res.json?
